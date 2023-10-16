@@ -26,22 +26,32 @@
         <li>Umyć naczynia</li>
         <li>Posprzątać pokój</li>
         <li>Przygotować obiad</li>
+        <li>Zrobić zakupy</li>
     </ul>
 
     <h2>Kalkulator</h2>
     <input type="numer" id="num1" placeholder="Liczba 1">
     <input type="numer" id="num2" placeholder="Liczba 2">
     <button id="addButton">Dodaj</button>
+    <button id="subtractButton">Odejmij</button>
+    <button id="multiplyButton">Pomnóż</button>
+    <button id="divideButton">Podziel</button>
     <p id="result">Wynik: </p>
 
     <h2>Kontakt</h2>
-    <form>
-        <label for="name">Imię:</label>
-        <input type="text" id="name" placeholder="Twoje imię">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" placeholder="Twój e-mail">
-        <label for="message">Wiadomość:</label>
-        <textarea id="message" rows="4" placeholder="Twoja wiadomość"></textarea>
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="name">Imię:</label>
+            <input type="text" id="name" placeholder="Twoje imię">
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" placeholder="Twój e-mail">
+        </div>
+        <div class="form-group">
+            <label for="message">Wiadomość:</label>
+            <textarea id="message" rows="4" placeholder="Twoja wiadomość"></textarea>
+        </div>
         <button id="contactButton">Wyślij</button>
     </form>
 

@@ -2,6 +2,8 @@ body{
     font-family: 'Arial', Arial, Helvetica, sans-serif;
     background-color: #f0f0f0;
     margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
 header{
@@ -29,7 +31,7 @@ h1{
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-#myButton, #addButton, #contactButton{
+#myButton, #addButton, #subtractButton, #multiplyButton, #divideButton, #contactButton {
     background-color: #4caf50;
     color: white;
     padding: 10px 20px;
@@ -39,7 +41,7 @@ h1{
     transition: background-color 0.3s;
 }
 
-#myButton:hover, #addButton:hover, #contactButton:hover{
+#myButton:hover, #addButton:hover, #subtractButton:hover, #multiplyButton:hover, #divideButton:hover, #contactButton:hover {
     background-color: #45a049;
 }
 
@@ -62,7 +64,7 @@ li{
 }
 
 input[type="number"], input[type="text"], input[type="email"], textarea {
-    width: 100px;
+    width: 100%;
     padding: 10px;
     margin-right: 10px;
     border: 1px solid #ccc;
@@ -72,4 +74,15 @@ input[type="number"], input[type="text"], input[type="email"], textarea {
 #result{
     font-size: 18px;
     margin-top: 10px;
+}
+
+.form-group{
+    margin-bottom: 15px;
+}
+
+.calculator{
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
 }
