@@ -39,6 +39,7 @@ h1{
     border-radius: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-right: 10px;
 }
 
 #myButton:hover, #addButton:hover, #subtractButton:hover, #multiplyButton:hover, #divideButton:hover, #contactButton:hover {
@@ -85,4 +86,24 @@ input[type="number"], input[type="text"], input[type="email"], textarea {
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img{
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.gallery img:hover{
+    transform: scale(1.05);
 }
