@@ -11,8 +11,12 @@ header{
     text-align: center;
 }
 
+footer{
+    background-color: #bbb;
+}
+
 h1{
-    font-size: 30px;
+    font-size: 36px;
 }
 
 .container{
@@ -25,7 +29,7 @@ h1{
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-#myButton{
+#myButton, #addButton, #contactButton{
     background-color: #4caf50;
     color: white;
     padding: 10px 20px;
@@ -35,7 +39,7 @@ h1{
     transition: background-color 0.3s;
 }
 
-#myButton:hover{
+#myButton:hover, #addButton:hover, #contactButton:hover{
     background-color: #45a049;
 }
 
@@ -57,26 +61,12 @@ li{
     margin-bottom: 10px;
 }
 
-input[type="numer"]{
+input[type="number"], input[type="text"], input[type="email"], textarea {
     width: 100px;
     padding: 10px;
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-#addButton{
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#addButton:hover{
-    background-color: #0056b3;
 }
 
 #result{

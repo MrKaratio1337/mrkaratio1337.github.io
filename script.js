@@ -15,4 +15,10 @@ document.getElementById('DOMContentLoaded', function (){
         const sum = num1 + num2;
         resultParagraph.textContent = 'Wynik: ' + sum;
     });
+
+    const sendButton = document.getElementById('contactButton');
+
+    sendButton.addEventListener('click', function(){
+        alert('Wysłano wiadomość!');
+    });
 });
