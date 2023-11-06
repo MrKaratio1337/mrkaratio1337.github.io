@@ -1,3 +1,35 @@
 body{
 	text-align: center;
+	margin: 0;
+	color: #fff;
+	font-size: 36px;
+}
+
+.background{
+	position: fixed;
+	top: 0;
+	flex: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background: linear-gradient(45deg, #3498db, #e74c3c);
+	animation: gradient 15s linear infinite;
+}
+
+@keyframes gradient{
+	0%{
+        background: linear-gradient(45deg, #3498db, #e74c3c);
+    }
+    25%{
+        background: linear-gradient(45deg, #e74c3c, #9b59b6);
+    }
+    50%{
+        background: linear-gradient(45deg, #9b59b6, #2ecc71);
+    }
+    75%{
+        background: linear-gradient(45deg, #2eec71, #f1c40f);
+    }
+    100%{
+        background: linear-gradient(45deg, #f1c40f, #3498db);
+    }
 }
