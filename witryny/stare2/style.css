@@ -1,0 +1,29 @@
+header{
+    text-align: center;
+}
+
+h1, h2{
+    font-family: Verdana, sans-serif;
+}
+
+p{
+    font-family: 'Times New Roman', sans-serif;
+}
+
+body{
+    background-color: #89CFF0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+li{
+    list-style: circle;
+}
+
+.justify{
+    font-style: italic;
+}
+
+img{
+    width: 300px;
+    height: 250px;
+}

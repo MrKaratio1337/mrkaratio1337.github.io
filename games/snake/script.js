@@ -1,104 +1,76 @@
-var blockSize = 25;
-var total_row = 17; 
-var total_col = 17; 
-var board;
-var context;
- 
-var snakeX = blockSize * 5;
-var snakeY = blockSize * 5;
- 
-var speedX = 0;
-var speedY = 0; 
- 
-var snakeBody = [];
- 
-var foodX;
-var foodY;
- 
-var gameOver = false;
- 
-window.onload = function () {
-    board = document.getElementById("board");
-    board.height = total_row * blockSize;
-    board.width = total_col * blockSize;
-    context = board.getContext("2d");
- 
-    placeFood();
-    document.addEventListener("keyup", changeDirection); 
-    setInterval(update, 1000 / 10);
+"use strict";
+var cvs = document.getElementById("canvas");
+var ctx = cvs.getContext("2d");
+// load images
+var bird = new Image();
+var bg = new Image();
+var fg = new Image();
+var pipeNorth = new Image();
+var pipeSouth = new Image();
+bird.src = "images/bird.png";
+bg.src = "images/bg.png";
+fg.src = "images/fg.png";
+pipeNorth.src = "images/pipeNorth.png";
+pipeSouth.src = "images/pipeSouth.png";
+// some variables
+var gap = 85;
+var constant;
+var bX = 10;
+var bY = 150;
+var gravity = 1.5;
+var score = 0;
+// audio files
+var fly = new Audio();
+var scor = new Audio();
+fly.src = "sounds/fly.mp3";
+scor.src = "sounds/score.mp3";
+// on key down
+document.addEventListener("keydown", moveUp);
+function moveUp() {
+  bY -= 25;
+  fly.play();
 }
- 
-function update() {
-    if (gameOver) {
-        return;
+// pipe coordinates
+var pipe = [];
+pipe[0] = {
+  x: cvs.width,
+  y: 0,
+};
+// draw images
+function draw() {
+  ctx.drawImage(bg, 0, 0);
+  for (var i = 0; i < pipe.length; i++) {
+    constant = pipeNorth.height + gap;
+    ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
+    ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
+    pipe[i].x--;
+    if (pipe[i].x == 125) {
+      pipe.push({
+        x: cvs.width,
+        y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height,
+      });
     }
- 
-    context.fillStyle = "black";
-    context.fillRect(0, 0, board.width, board.height);
- 
-    context.fillStyle = "red";
-    context.fillRect(foodX, foodY, blockSize, blockSize);
- 
-    if (snakeX == foodX && snakeY == foodY) {
-        snakeBody.push([foodX, foodY]);
-        placeFood();
+    // detect collision
+    if (
+      (bX + bird.width >= pipe[i].x &&
+        bX <= pipe[i].x + pipeNorth.width &&
+        (bY <= pipe[i].y + pipeNorth.height ||
+          bY + bird.height >= pipe[i].y + constant)) ||
+      bY + bird.height >= cvs.height - fg.height
+    ) {
+      location.reload(); // reload the page
     }
- 
-    for (let i = snakeBody.length - 1; i > 0; i--) {
-        snakeBody[i] = snakeBody[i - 1];
+    if (pipe[i].x == 5) {
+      score++;
+      scor.play();
     }
-    if (snakeBody.length) {
-        snakeBody[0] = [snakeX, snakeY];
-    }
- 
-    context.fillStyle = "green";
-    snakeX += speedX * blockSize; 
-    snakeY += speedY * blockSize;  
-    context.fillRect(snakeX, snakeY, blockSize, blockSize);
-    for (let i = 0; i < snakeBody.length; i++) {
-        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
-    }
- 
-    if (snakeX < 0 
-        || snakeX > total_col * blockSize 
-        || snakeY < 0 
-        || snakeY > total_row * blockSize) { 
-         
-        gameOver = true;
-        alert("Koniec Gry!");
-    }
- 
-    for (let i = 0; i < snakeBody.length; i++) {
-        if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) { 
-             
-            gameOver = true;
-            alert("Koniec Gry!");
-        }
-    }
+  }
+  ctx.drawImage(fg, 0, cvs.height - fg.height);
+  ctx.drawImage(bird, bX, bY);
+  bY += gravity;
+  ctx.fillStyle = "#000";
+  ctx.font = "20px Verdana";
+  ctx.fillText("Score : " + score, 10, cvs.height - 20);
+  requestAnimationFrame(draw);
 }
- 
-function changeDirection(e) {
-    if (e.code == "ArrowUp" && speedY != 1) { 
-        speedX = 0;
-        speedY = -1;
-    }
-    else if (e.code == "ArrowDown" && speedY != -1) {
-        speedX = 0;
-        speedY = 1;
-    }
-    else if (e.code == "ArrowLeft" && speedX != 1) {
-        speedX = -1;
-        speedY = 0;
-    }
-    else if (e.code == "ArrowRight" && speedX != -1) { 
-        speedX = 1;
-        speedY = 0;
-    }
-}
- 
-function placeFood() {
- 
-    foodX = Math.floor(Math.random() * total_col) * blockSize; 
-     
-    foodY = Math.floor(Math.random() * total_row) * blockSize; 
-}
+draw();
