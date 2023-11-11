@@ -10,3 +10,5 @@ function check(){
 
     wynik.innerHTML = "Wynik: " + oblicz;
 }
+
+document.addEventListener('click', check);
