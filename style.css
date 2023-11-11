@@ -6,6 +6,10 @@ body{
 	color: #fff;
 }
 
+#navigation:hover{
+	color: gray;
+}
+
 .container{
 	display: flex;
 	justify-content: space-between;
@@ -49,6 +53,12 @@ section{
 	z-index: -1;
 	background: linear-gradient(45deg, #3498db, #e74c3c);
 	animation: gradient 15s linear infinite;
+}
+
+.border-of-projects{
+	border: 1px solid white;
+	width: 200px;
+	display: inline-block;
 }
 
 @keyframes gradient{
