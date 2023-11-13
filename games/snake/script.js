@@ -10,12 +10,25 @@ var snakeY = blockSize * 5;
 var speedX = 0;
 var speedY = 0; 
 
+var score = 0;
+var highScore = 0;
+
 var snakeBody = [];
 
 var foodX;
 var foodY;
 
 var gameOver = false;
+
+function updateScore(){
+    score++;
+    document.getElementById('score').innerHTML = "Score: " + score;
+    if(highScore < score){
+        highScore++;
+        localStorage.setItem("highScore", highScore);
+        document.getElementById('high-score').innerHTML = "HighScore: " + localStorage.getItem("highScore");
+    }
+}
 
 window.onload = function () {
     board = document.getElementById("board");
@@ -42,6 +55,7 @@ function update() {
     if (snakeX == foodX && snakeY == foodY) {
         snakeBody.push([foodX, foodY]);
         placeFood();
+        updateScore();
     }
 
     for (let i = snakeBody.length - 1; i > 0; i--) {
@@ -66,6 +80,7 @@ function update() {
 
         gameOver = true;
         alert("Koniec Gry!");
+        update();
     }
 
     for (let i = 0; i < snakeBody.length; i++) {
@@ -73,6 +88,7 @@ function update() {
 
             gameOver = true;
             alert("Koniec Gry!");
+            update();
         }
     }
 }
