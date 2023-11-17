@@ -1,0 +1,18 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 20%;
+}
+
+tr{
+    height: 100px;
+}
+
+table, th, td{
+    border-left: 1px solid;
+    border-bottom: 1px dotted;
+}
+
+.table_header{
+    height: 30px;
+}
