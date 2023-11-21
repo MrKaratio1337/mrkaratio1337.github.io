@@ -34,22 +34,15 @@ table, th, td{
     text-decoration: underline dotted 2px gray;
 }
 
-.blue-text{
+.text-blue{
     text-align: center;
+    color: #36c1d1;
     font-size: 11px;
     text-decoration: underline dotted 2px gray;
-    color: #36c1d1;
 }
 
 span{
     float: right;
     cursor: pointer;
     font-size: 10px;
-}
-
-.text-blue{
-    color: #36c1d1;
-    text-align: center;
-    font-size: 11px;
-    text-decoration: underline dotted 2px gray;
 }
