@@ -10,6 +10,6 @@ body{
 }
 
 .result{
-    border: 3px solid blue;
-    color: yellow;
+    border: 3px solid yellow;
+    color: blue;
 }
