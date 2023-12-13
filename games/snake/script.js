@@ -11,7 +11,6 @@ var speedX = 0;
 var speedY = 0; 
 
 var score = 0;
-var highScore = 0;
 
 var snakeBody = [];
 
@@ -23,11 +22,6 @@ var gameOver = false;
 function updateScore(){
     score++;
     document.getElementById('score').innerHTML = "Score: " + score;
-    if(highScore < score){
-        highScore++;
-        localStorage.setItem("highScore", highScore);
-        document.getElementById('high-score').innerHTML = "HighScore: " + localStorage.getItem("highScore");
-    }
 }
 
 window.onload = function () {
