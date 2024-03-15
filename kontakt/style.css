@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+    background: linear-gradient(320deg, black, #9523ff, black);
+    padding: 30px;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav a{
+    text-decoration: none;
+    color: gray;
+    font-size: 20px;
+}
+
+nav a:hover{
+    color: lightgray;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+.container{
+    text-align: center;
+    margin-bottom: 616px;
+}
+
+.container h1{
+    margin-bottom: 120px;
+}
+
+.container a{
+    text-decoration: none;
+    color: purple;
+}
+
+.span__colored{
+    color: purple;
+}
+
+footer{
+    background-color: black;
+    color: darkgray;
+    padding: 13px;
+    text-align: center;
+}
